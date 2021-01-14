@@ -1,5 +1,5 @@
 /* Table of Lands */
-CREATE TYPE land_type as ENUM ("island", "mountain", "swamp", "plains", "forest");
+CREATE TYPE land_type as ENUM ('island', 'mountain', 'swamp', 'plains', 'forest');
 
 CREATE TABLE lands (
 	land_id SERIAL PRIMARY KEY,

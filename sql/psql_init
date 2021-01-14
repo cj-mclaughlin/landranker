@@ -1,0 +1,12 @@
+psql -f schema.sql \
+  --host=landranker-test.cp4haaxrm2p8.us-east-1.rds.amazonaws.com \
+  --port=5432 \
+  --username=postgres \
+  --dbname=landranker
+
+psql -f data.sql \
+  --host=landranker-test.cp4haaxrm2p8.us-east-1.rds.amazonaws.com \
+  --port=5432 \
+  --username=postgres \
+  --dbname=landranker
+
