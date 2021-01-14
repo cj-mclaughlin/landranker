@@ -112,4 +112,31 @@ def add_match_result(land_id1, land_id2, result):
         print(error)
 
 
-query_land_objects(1, 2)
+def sample_random_lands(land_type=None):
+    """
+    Sample a pair of land objects for ranking match
+
+    Args:
+        land_type: (optional) specific type of land to sample (see string enum in schema)
+
+    Returns:
+        tuple of land objects
+    """
+    sql = ""
+    # debated using TABLESAMPLE SYSTEM_ROWS() for sampling... but doesn't work with small datasets like we have now
+    if land_type == None:
+        sql = "SELECT land_id, s3_url, elo FROM lands ORDER BY RANDOM() LIMIT 2"
+    else:
+        sql = f"SELECT land_id, s3_url, elo FROM lands WHERE type = '{land_type}' ORDER BY RANDOM() LIMIT 2"
+    try:
+        conn, cur = connect_db()
+        cur.execute(sql)
+        assert cur.rowcount == 2
+        psql_lands = cur.fetchall()
+        land1 = psql_to_object(psql_lands[0])
+        land2 = psql_to_object(psql_lands[1])
+        disconnect_db(conn, cur)
+        return land1, land2
+    except (Exception, psql.DatabaseError) as error:
+        print(error)
+
