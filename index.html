@@ -1,0 +1,77 @@
+<html>
+<head>
+<style>
+body{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-family: monospace;
+}
+.head{
+    width: 100%;
+    height: 10vh;
+    background: #0f6f80;
+}
+.head h1{
+    color: #fff;
+    line-height: 10vh;
+    text-align: center;
+    font-size: 50px;
+    font-family: sans-serif;
+}
+.links{
+    width: 100%;
+    height:auto;
+    text-align: right;
+}
+.pull-right{
+    margin-right: 15px;
+    float: right;
+}
+.middle{
+    width: 60%;
+    margin: auto;
+    height: 65vh;
+}
+.lg{
+    width: calc(45%);
+    float: left;
+    height: 65vh;
+}
+.lg img{
+    width: 100%;
+    max-height: 100%;
+    margin: auto auto;
+}
+.sm{
+    width: calc(10%);
+    float: left;
+    height: 55vh;
+    line-height: 55vh;
+}
+</style>
+</head>
+<body>
+    <div class="head">
+        <h1>Landranker</h1>
+    </div>
+    <h2>One of the biggest wastes of time known to man...</h2>
+    <h1>Please Click Your Preferred Land.</h1>
+    <div class="middle">
+        <div class="lg">
+            <a href="/vote/{{A}}/{{B}}">
+                <img src="https://{{A}}">
+            </a>
+        </div>
+        <div class="sm">
+            OR
+        </div>
+        <div class="lg">
+            <a href="/vote/{{B}}/{{A}}">
+                <img src="https:/{{B}}">
+            </a>
+        </div>
+    </div>
+</body>
+</html>
+
